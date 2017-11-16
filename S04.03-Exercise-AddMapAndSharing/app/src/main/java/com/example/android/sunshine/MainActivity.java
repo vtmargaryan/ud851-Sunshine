@@ -221,7 +221,16 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             return true;
         }
 
-        // TODO (2) Launch the map when the map menu item is clicked
+        // DONE (2) Launch the map when the map menu item is clicked
+        if (id == R.id.action_open_map) {
+            Uri uri = new Uri.Builder()
+                    .scheme("geo")
+                    .path("0,0")
+                    .query("Maykop")
+                    .build();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(uri);
+        }
 
         return super.onOptionsItemSelected(item);
     }
